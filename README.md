@@ -1,21 +1,13 @@
 # Project 3: Around The U.S.
 
-### Overview  
+## About
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+This project is a social media type website that includes a gallery of images organized using display:grid. This project requires all elements to be dispayed correctly on popular screen sizes and demonstrates my ability to make websites mobile responsive.
+
+## Technologies used
+
+- HTML
+- CSS
+
+[Link to github repo] (https://github.com/kevserna/se_project_aroundtheus)
+[Link to project video] (https://drive.google.com/file/d/1Zl0BbCgnvnQVh1pzcnHccViQBFZ7pEse/view?usp=sharing)
