@@ -9,5 +9,5 @@ This project is a social media type website that includes a gallery of images or
 - HTML
 - CSS
 
-[Link to github repo] (https://github.com/kevserna/se_project_aroundtheus)
+[Link to github pages] (https://kevserna.github.io/se_project_aroundtheus/)
 [Link to project video] (https://drive.google.com/file/d/1Zl0BbCgnvnQVh1pzcnHccViQBFZ7pEse/view?usp=sharing)
