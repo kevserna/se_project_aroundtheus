@@ -25,10 +25,10 @@
     max-width: 282px;
     margin-top: 48px;
     margin-bottom: 36px;
-    padding: 0;
   }
   .footer__text {
     margin: 0;
     font-size: 14px;
+    line-height: 16.94px;
   }
 }
