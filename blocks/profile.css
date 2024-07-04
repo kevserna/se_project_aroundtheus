@@ -115,6 +115,7 @@
   .profile__name {
     font-size: 22px;
     line-height: 26.62px;
+    max-width: 350px;
   }
 
   .profile__description {
