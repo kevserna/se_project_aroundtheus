@@ -11,7 +11,7 @@
   display: none;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
@@ -85,6 +85,7 @@
 
   .modal__heading {
     margin-bottom: 75px;
+    font-size: 18px;
   }
 
   .modal__button {
