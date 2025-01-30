@@ -1,5 +1,6 @@
 .card {
   display: flex;
+  position: relative;
   border-radius: 10px;
   flex-direction: column;
   list-style-type: none;
@@ -37,7 +38,26 @@
   border: none;
 }
 
+.card__like-button_active {
+  background-image: url(../images/like-active.svg);
+}
+
 .card__like-button:hover {
   opacity: 50%;
+  cursor: pointer;
+}
+
+.card__trash {
+  background: transparent url(../images/trash-icon.svg);
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.card__trash:hover {
+  opacity: 60%;
   cursor: pointer;
 }
