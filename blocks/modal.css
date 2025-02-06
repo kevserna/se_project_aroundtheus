@@ -92,6 +92,7 @@
   border-radius: 2px;
   background-color: #000;
   color: #fff;
+  font-size: 18px;
 }
 
 .modal__button:hover {
@@ -135,6 +136,7 @@
   .modal__button {
     margin-top: 45px;
     height: 46px;
+    font-size: 14px;
   }
 
   .modal__form {

@@ -30,10 +30,12 @@ const initialCards = [
 // ##################################################################### //
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const modalClose = profileEditModal.querySelector("#modal-close");
+const profileEditModalClose = profileEditModal.querySelector(
+  "#profile-edit-modal-close"
+);
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
-const profileTitleInput = document.querySelector("#modal__title-input");
+const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#modal__description-input"
 );
@@ -43,7 +45,7 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardAddModal = document.querySelector("#add-modal");
 const cardAddButton = document.querySelector("#add-button");
-const cardAddCloseButton = cardAddModal.querySelector("#modal-close");
+const cardAddCloseButton = cardAddModal.querySelector("#card-add-modal-close");
 const cardAddForm = document.querySelector("#add-card-form");
 const previewImageModalWindow = document.querySelector(".js-preview-modal");
 const previewModalClose = previewImageModalWindow.querySelector(
@@ -79,7 +81,6 @@ function getCardView(cardData) {
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
-  cardListEl.prepend(cardElement);
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
@@ -134,7 +135,9 @@ cardAddForm.addEventListener("submit", (e) => {
   closeModal(cardAddModal);
 });
 
-modalClose.addEventListener("click", () => closeModal(profileEditModal));
+profileEditModalClose.addEventListener("click", () =>
+  closeModal(profileEditModal)
+);
 previewModalClose.addEventListener("click", () =>
   closeModal(previewImageModalWindow)
 );
