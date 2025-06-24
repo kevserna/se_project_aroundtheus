@@ -138,6 +138,7 @@ function handleProfileEditSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  resetValidation(profileEditForm, config);
   openModal(profileEditModal);
 });
 
@@ -151,6 +152,7 @@ cardAddForm.addEventListener("submit", (e) => {
   });
   renderCard(cardView, cardListEl);
   cardAddForm.reset();
+  resetValidation(cardAddForm, config);
   closeModal(cardAddModal);
 });
 
@@ -161,7 +163,12 @@ previewModalClose.addEventListener("click", () =>
   closeModal(previewImageModalWindow)
 );
 
-cardAddButton.addEventListener("click", () => openModal(cardAddModal));
+cardAddButton.addEventListener("click", () => {
+  cardAddForm.reset();
+  resetValidation(cardAddForm, config);
+  openModal(cardAddModal);
+});
+
 cardAddCloseButton.addEventListener("click", () => closeModal(cardAddModal));
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
