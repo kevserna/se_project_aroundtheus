@@ -30,16 +30,19 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
-  submitButton.classList.remove(inactiveButtonClass);
-  submitButton.disabled = false;
 }
 
 function setEventListeners(formEL, options) {
-  const { inputSelector } = options;
+  const { inputSelector, submitButtonSelector } = options;
   const inputEls = Array.from(formEL.querySelectorAll(inputSelector));
-  const submitButton = formEL.querySelector(".modal__button");
-  toggleButtonState(inputEls, submitButton, options);
+  const submitButton = formEL.querySelector(submitButtonSelector);
+  if (formEL.id !== "add-card-form") {
+    toggleButtonState(inputEls, submitButton, options);
+  }
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEL, inputEl, options);
