@@ -40,9 +40,7 @@ function setEventListeners(formEL, options) {
   const { inputSelector, submitButtonSelector } = options;
   const inputEls = Array.from(formEL.querySelectorAll(inputSelector));
   const submitButton = formEL.querySelector(submitButtonSelector);
-  if (formEL.id !== "add-card-form") {
-    toggleButtonState(inputEls, submitButton, options);
-  }
+
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formEL, inputEl, options);

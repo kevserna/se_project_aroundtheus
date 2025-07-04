@@ -164,7 +164,6 @@ previewModalClose.addEventListener("click", () =>
 );
 
 cardAddButton.addEventListener("click", () => {
-  resetValidation(cardAddForm, config);
   openModal(cardAddModal);
 });
 
