@@ -83,6 +83,10 @@
   color: rgba(0, 0, 0, 1);
 }
 
+.modal__input_type_url {
+  margin-top: 29.74px;
+}
+
 .modal__input_type_error {
   border-bottom: 1px solid red;
 }
