@@ -123,7 +123,7 @@ class Card {
     });
 
     this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this._name, this._link);
+      this._handleImageClick(this);
     });
   }
 
@@ -154,10 +154,10 @@ function handleProfileEditSubmit(evt) {
   closeModal(profileEditModal);
 }
 
-function handleImageClick(name, link) {
-  previewImageEl.src = link;
-  previewImageEl.alt = name;
-  previewImageCaption.textContent = name;
+function handleImageClick(card) {
+  previewImageEl.src = card._link;
+  previewImageEl.alt = card._name;
+  previewImageCaption.textContent = card._name;
   openModal(previewImageModalWindow);
 }
 
