@@ -167,7 +167,7 @@ function handleImageClick(card) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  resetValidation(profileEditForm, config);
+  profileEditValidator.resetValidation();
   openModal(profileEditModal);
 });
 
@@ -186,7 +186,7 @@ cardAddForm.addEventListener("submit", (e) => {
   const cardView = card.getView();
   renderCard(cardView, cardListEl);
   cardAddForm.reset();
-  resetValidation(cardAddForm, config);
+  cardAddValidator.resetValidation();
   closeModal(cardAddModal);
 });
 
