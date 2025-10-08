@@ -160,6 +160,7 @@ cardAddForm.addEventListener("submit", (e) => {
   const cardView = card.getView();
   renderCard(cardView, cardListEl);
   cardAddForm.reset();
+  cardAddValidator.resetValidation();
   cardAddValidator.disableSubmitButton();
   closeModal(cardAddModal);
 });
