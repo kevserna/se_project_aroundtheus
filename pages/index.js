@@ -1,3 +1,6 @@
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -57,6 +60,30 @@ const previewImageCaption = document.querySelector(
 );
 
 // ##################################################################### //
+// ########################## Form Validation ########################## //
+// ##################################################################### //
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+// Create FormValidator instances for each form
+const profileEditForm = document.querySelector(
+  "#profile-edit-modal .modal__form"
+);
+const cardAddForm = document.querySelector("#add-modal .modal__form");
+
+const profileEditValidator = new FormValidator(config, profileEditForm);
+const cardAddValidator = new FormValidator(config, cardAddForm);
+
+// Enable validation for each form
+profileEditValidator.enableValidation();
+cardAddValidator.enableValidation();
+
+// ##################################################################### //
 // ############################# Functions ############################# //
 // ##################################################################### //
 function closeModal(modal) {
@@ -90,60 +117,6 @@ function renderCard(cardElement, container) {
   container.prepend(cardElement);
 }
 
-class Card {
-  constructor(data, cardSelector, handleImageClick) {
-    this._name = data.name;
-    this._link = data.link;
-    this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
-  }
-
-  _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.firstElementChild.cloneNode(true);
-    return cardElement;
-  }
-
-  _handleLikeClick() {
-    this._likeButton.classList.toggle("card__like-button_active");
-  }
-
-  _handleDeleteClick() {
-    this._cardElement.remove();
-  }
-
-  _setEventListeners() {
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick();
-    });
-
-    this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteClick();
-    });
-
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this);
-    });
-  }
-
-  getView() {
-    this._cardElement = this._getTemplate();
-    this._cardImage = this._cardElement.querySelector(".card__image");
-    this._cardTitle = this._cardElement.querySelector(".card__name");
-    this._likeButton = this._cardElement.querySelector(".card__like-button");
-    this._deleteButton = this._cardElement.querySelector(".card__trash");
-
-    this._cardTitle.textContent = this._name;
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-
-    this._setEventListeners();
-
-    return this._cardElement;
-  }
-}
-
 // ##################################################################### //
 // ########################### Event Handlers ########################## //
 // ##################################################################### //
@@ -151,6 +124,7 @@ function handleProfileEditSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
+  profileEditValidator.disableSubmitButton();
   closeModal(profileEditModal);
 }
 
@@ -186,7 +160,7 @@ cardAddForm.addEventListener("submit", (e) => {
   const cardView = card.getView();
   renderCard(cardView, cardListEl);
   cardAddForm.reset();
-  cardAddValidator.resetValidation();
+  cardAddValidator.disableSubmitButton();
   closeModal(cardAddModal);
 });
 

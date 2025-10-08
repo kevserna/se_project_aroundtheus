@@ -1,4 +1,4 @@
-class FormValidator {
+export class FormValidator {
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
@@ -72,25 +72,9 @@ class FormValidator {
     });
     this._toggleButtonState();
   }
+
+  disableSubmitButton() {
+    this._submitButton.classList.add(this._config.inactiveButtonClass);
+    this._submitButton.disabled = true;
+  }
 }
-
-const config = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-
-// Create FormValidator instances for each form
-const profileEditForm = document.querySelector(
-  "#profile-edit-modal .modal__form"
-);
-const cardAddForm = document.querySelector("#add-modal .modal__form");
-
-const profileEditValidator = new FormValidator(config, profileEditForm);
-const cardAddValidator = new FormValidator(config, cardAddForm);
-
-// Enable validation for each form
-profileEditValidator.enableValidation();
-cardAddValidator.enableValidation();
