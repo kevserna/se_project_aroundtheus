@@ -71,10 +71,6 @@ const config = {
 };
 
 // Create FormValidator instances for each form
-const profileEditForm = document.querySelector(
-  "#profile-edit-modal .modal__form"
-);
-const cardAddForm = document.querySelector("#add-modal .modal__form");
 
 const profileEditValidator = new FormValidator(config, profileEditForm);
 const cardAddValidator = new FormValidator(config, cardAddForm);
